@@ -15,3 +15,24 @@ app.listen(port,()=>{
     console.log(`server is running on port${port}`);
     
 })
+
+use of req  as authentication using postman
+const express=require('express');
+const app=express();
+const port=5000;
+
+app.get('/',function(req,res){
+    res.send("hello guys");
+   
+});
+app.get('/profile',(req,res)=>{
+ console.log(req.headers["authentication"]);
+    res.json({
+        name:"Saroj Neupane", 
+        faculty:"CSIT",
+    });
+});
+app.listen(port,function(){
+console.log(`the server is runing on port ${port}`);
+});
+
