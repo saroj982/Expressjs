@@ -52,3 +52,23 @@ app.post('/profile', (req, res) => {
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 });
+
+//use of query and in port process.env.PORT||3000 and req.query
+const express = require('express');
+const bodyparser=require('body-parser');
+const app = express();
+const port = process.env.PORT ||3000;
+
+app.use(bodyparser.json());
+
+app.post('/backend-api/conversation', (req, res) => {
+  const message=req.query.message;
+  console.log(message);
+  res.json({
+    output:"2+2"
+  }); 
+}); 
+
+app.listen(port, () => {
+  console.log(`server running on port ${port}`);
+});
