@@ -72,3 +72,48 @@ app.post('/backend-api/conversation', (req, res) => {
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 });
+filesystem 
+fs means a library thats gives you the high level constructs to do filesystem stuff(read from a file,write to a file)
+
+Express
+express means a library thats gives you  high level constructs to create http server
+
+//use of settimeout function in express js
+const express=require('express');
+const app=express();
+const port=4000;
+
+app.get('/',(req,res)=>{
+  setTimeout(() => {
+    res.send("hello world");
+  }, 3000);
+});
+
+app.listen(port,()=>{
+  console.log(`the server is running on port${port}`);
+});
+//use of function to calculate sum of n numbers use of postman 
+const express=require('express');
+const app=express();
+const port=4000;
+function calculateSum(n){
+  let ans=0;
+  for(let i=0; i<=n;i++){
+    ans=ans+i;
+  }
+  return ans;
+}
+app.get('/',function(req,res){
+  res.send("hello world");
+})
+
+app.post('/',(req,res)=>{
+  const n=req.query.n;
+  console.log(n);
+  const ans=calculateSum(n);
+  res.send(ans);
+});
+
+app.listen(port,()=>{
+  console.log(`the server is running on port${port}`);
+});
